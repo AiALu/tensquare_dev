@@ -1,0 +1,26 @@
+#  为当前的微服务指定一个端口号
+server:
+  port: 9001
+
+#  Spring Cloud 要求找微服务的时候中间必须是横杆，或者不加，要加只能加横杆
+spring:
+  application:
+    name: tensquare-base
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.229.128:3306/tensquare_base?characterEncoding=utf8
+    username: root
+    password: root
+  jpa:
+    database: mysql
+    show-sql: true
+
+# Eureka 服务地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka/
+
+  instance:
+    prefer-ip-address: true # 部署到线上时 模块之间可以跨域访问
